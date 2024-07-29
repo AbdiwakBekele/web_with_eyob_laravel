@@ -11,5 +11,8 @@ Route::get('/', function () {
 Route::get('/home', function () {
     return view('home');
 });
+Route::get('/second', function () {
+    return view('second');
+});
 
 Route::get('/get_user', [UserController::class, 'index']);
