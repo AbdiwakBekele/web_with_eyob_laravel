@@ -16,6 +16,8 @@ Route::get('/second', function () {
     return view('second');
 });
 
+Route::get('/student_registration', [StudentController::class, 'registration']);
+
 Route::get('/get_user', [UserController::class, 'index']);
 
 Route::resource('student', StudentController::class);
