@@ -9,7 +9,11 @@
 
 <body>
 
-    <h1>This is Second page</h1>
+    <h2>Detail Student Profile</h2>
+    <hr>
+
+    <p> Name: {{$student->name}} </p>
+    <p> Address: {{$student->subcity}}, {{$student->city}}</p>
 
 </body>
 
