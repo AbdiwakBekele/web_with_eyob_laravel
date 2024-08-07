@@ -8,6 +8,13 @@ class StudentController extends Controller {
     /**
      * Display a listing of the resource.
      */
+    public function registration() {
+        $name = 'Abdiwak';
+        $age = '23';
+        return view('register', compact('name', 'age'));
+    }
+
+
     public function index() {
         return 'test';
     }
