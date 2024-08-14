@@ -15,6 +15,16 @@
     <p> Name: {{$student->name}} </p>
     <p> Address: {{$student->subcity}}, {{$student->city}}</p>
 
+    <hr>
+    <h2>Courses</h2>
+
+    <ol>
+        @foreach($student->courses as $course)
+        <li>{{$course->course_name}}</li>
+        @endforeach
+    </ol>
+
+
 </body>
 
 </html>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CourseController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\UserController;
 use App\Models\Student;
@@ -23,3 +24,5 @@ use Illuminate\Support\Facades\Route;
 // Route::delete('/students/{id}',  [StudentController::class, 'delete']);
 
 Route::resource('/students', StudentController::class);
+
+Route::resource('/courses', CourseController::class);
