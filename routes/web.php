@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\UserController;
@@ -15,18 +16,23 @@ use PhpParser\Node\Expr\FuncCall;
 // PUT/PATCH - update
 // DElETE - delete
 
-// Route::get('/students', [StudentController::class, 'index']);
-// Route::get('/students/create',  [StudentController::class, 'create']);
-// Route::post('/students', [StudentController::class, 'store']);
-// Route::get('/students/{id}',  [StudentController::class, 'show']);
-// Route::get('/students/{id}/edit',  [StudentController::class, 'edit']);
-// Route::put('/students/{id}',  [StudentController::class, 'update']);
-// Route::delete('/students/{id}',  [StudentController::class, 'delete']);
+Route::get('login', [AuthController::class, 'login'])->name('login');
 
-Route::resource('/students', StudentController::class);
+Route::post('login', [AuthController::class, 'loginPost']);
 
-Route::resource('/courses', CourseController::class);
+Route::post('logout', [AuthController::class, 'logout']);
 
-Route::get('/', function () {
-    return view('layout.app');
+Route::get('register', [AuthController::class, 'registration']);
+
+Route::post('register', [AuthController::class, 'registrationPost']);
+
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/home', function () {
+        return view('layout.app');
+    })->name('home');
+
+    Route::resource('/students', StudentController::class);
+
+    Route::resource('/courses', CourseController::class);
 });

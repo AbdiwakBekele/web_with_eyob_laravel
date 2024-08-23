@@ -15,6 +15,15 @@
 
     @include('partials.header')
 
+    @session('success')
+    <div class="alert alert-success"> {{ session('success') }} </div>
+    @endsession()
+
+    <form action="/logout" method="POST">
+        @csrf
+        <input type="submit" value="Logout">
+    </form>
+
     <div class="container">
         @yield('content')
     </div>
